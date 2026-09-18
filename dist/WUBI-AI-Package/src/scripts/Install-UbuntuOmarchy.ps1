@@ -189,7 +189,7 @@ echo Target Container : $vhdPath
 echo ISO Image        : $UbuntuIsoPath
 echo.
 if exist "$UbuntuIsoPath" (
-    $exeToRun -m 4096 -smp 4 -accel whpx -accel tcg -drive file="$vhdPath",format=vhdx,if=virtio -cdrom "$UbuntuIsoPath" -boot d -net nic,model=virtio -net user
+    $exeToRun -m 4096 -smp 4 -cpu Skylake-Client-v4,-svm -accel whpx -accel tcg -vga virtio -drive file="$vhdPath",format=vhdx,if=virtio -cdrom "$UbuntuIsoPath" -boot d -net nic,model=virtio -net user
 ) else (
     echo [ERROR] File ISO Ubuntu belum dipilih atau tidak ditemukan di: $UbuntuIsoPath
     pause

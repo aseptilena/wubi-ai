@@ -122,7 +122,7 @@ echo =========================================================
 echo Target Container : $VhdPath
 echo ISO Image        : $UbuntuIsoPath
 echo.
-$exeToRun -m 4096 -smp 4 -accel whpx -accel tcg -drive file="$VhdPath",format=vhdx,if=virtio -cdrom "$UbuntuIsoPath" -boot d -net nic,model=virtio -net user
+$exeToRun -m 4096 -smp 4 -cpu Skylake-Client-v4,-svm -accel whpx -accel tcg -vga virtio -drive file="$VhdPath",format=vhdx,if=virtio -cdrom "$UbuntuIsoPath" -boot d -net nic,model=virtio -net user
 exit /b
 "@
 Set-Content -Path $qemuLaunchBat -Value $qemuCmd -Encoding ASCII

@@ -627,9 +627,9 @@ function Start-WubiIsoDownload([string]$targetFolder) {
                 $isoDlProgress.Value = $pct
                 $dlPercentLabel.Text = "$pct%"
                 if ($tot -gt 0) {
-                    $statusIndicator.Text = "Unduh: $rcv MB / $tot MB ($pct% @ $speedMBps MB/s)"
+                    $statusIndicator.Text = "Unduh: $([math]::Round($rcv, 1)) MB / $([math]::Round($tot, 1)) MB ($pct% @ $speedMBps MB/s)"
                 } else {
-                    $statusIndicator.Text = "Unduh: $rcv MB ($speedMBps MB/s)"
+                    $statusIndicator.Text = "Unduh: $([math]::Round($rcv, 1)) MB ($pct% @ $speedMBps MB/s)"
                 }
             }) | Out-Null
         }
