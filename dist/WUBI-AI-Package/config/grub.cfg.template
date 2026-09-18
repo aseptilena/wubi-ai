@@ -1,0 +1,24 @@
+﻿set timeout=5
+set default=0
+
+insmod part_msdos
+insmod part_gpt
+insmod ntfs
+insmod ext2
+insmod loopback
+
+# Dynamically locate the host drive containing the container file
+search --no-floppy --file --set=root /ubuntu-ai/root.vhdx
+
+menuentry 'Ubuntu 24.04 LTS (Omarchy AI Workstation)' --class ubuntu --class gnu-linux --class os {
+    search --no-floppy --file --set=root /ubuntu-ai/root.vhdx
+    loopback loop0 /ubuntu-ai/root.vhdx
+    
+    # Kernel boot arguments passing VHD loop reference to initramfs
+    linux (loop0)/vmlinuz root=/dev/disk/by-uuid/UBUNTU_ROOT loop=/ubuntu-ai/root.vhdx rw quiet splash omarchy.provision=1
+    initrd (loop0)/initrd.img
+}
+
+menuentry 'Return to Windows Boot Manager' {
+    exit
+}
