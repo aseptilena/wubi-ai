@@ -1,4 +1,4 @@
-﻿# WUBI-AI: Non-Destructive Windows-Based Ubuntu Flavor & Omarchy AI Workstation Installer
+# WUBI-AI: Non-Destructive Windows-Based Ubuntu Flavor & Omarchy AI Workstation Installer
 
 [![GitHub License](https://img.shields.io/badge/license-GPLv2%20%2F%20MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D6.svg)](https://www.microsoft.com/windows)
@@ -54,12 +54,13 @@ Dapat memilih stack AI yang otomatis disiapkan pada first-boot:
 
 ## 🖥️ Struktur Direktori Proyek
 
-`	ext
+```text
 WUBI-AI/
-├── Launch-WubiAI.bat              # Launcher utama batch (CLI / GUI)
+├── README.md                      # Dokumentasi publik utama repositori
+├── AGENTS.md                      # Pedoman AI Agent & developer workflow (doc-c-p)
 ├── PRD_WUBI_AI.md                 # Product Requirement Document komprehensif
 ├── WALKTHROUGH.md                 # Dokumentasi alur pengujian & verifikasi
-├── README.md                      # Dokumentasi umum repositori
+├── Launch-WubiAI.bat              # Entrypoint batch utama
 ├── .gitignore                     # Proteksi eksklusi file ISO & VHDX besar
 ├── config/
 │   └── grub.cfg.template          # Template konfigurasi GRUB WUBI-AI
@@ -79,7 +80,7 @@ WUBI-AI/
 │   └── wubiuefi-core/                   # Hook Lupin & kernel patch WubiUEFI
 └── tests/
     └── Test-PreflightChecks.ps1         # Script pengujian otomatis (Dry-Run)
-`
+```
 
 ---
 
